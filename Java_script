@@ -1,0 +1,24 @@
+public class HWtesting {
+    public static void main(String[] args) throws InterruptedException {
+
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("http://demo.guru99.com/test/newtours/register.php");
+
+
+        driver.findElement(By.xpath("//a[normalize-space()='REGISTER']")).click();
+        driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("jawad");
+        driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys("frad");
+        driver.findElement(By.xpath("//input[@name='phone']")).sendKeys("2049830298");
+        driver.findElement(By.xpath("//input[@id='userName']")).sendKeys("erw@gmail.com");
+        driver.findElement(By.xpath("//input[@name='address1']")).sendKeys("3 west hoston");
+        driver.findElement(By.xpath("//input[@name='city']")).sendKeys("fairfox");
+        driver.findElement(By.xpath("//input[@name='state']")).sendKeys("va");
+        driver.findElement(By.xpath("//input[@name='postalCode']")).sendKeys("22309");
+
+        driver.findElement(By.xpath("//select[@name='country']")).sendKeys("AUSTRIA");
+        Assert.assertNotEquals("true","open registration page");
+
+        Thread.sleep(3000);
+        driver.close();
